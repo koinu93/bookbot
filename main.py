@@ -1,7 +1,12 @@
+import sys
 from stats import get_book_text, get_word_count, character_repeat_count, dictionary_pairs, sort_list
 
+if len(sys.argv) != 2:
+    print("Usage: python3 main.py <path_to_book>")
+    sys.exit(1)
+
 def main():
-    book_path = "books/frankenstein.txt"
+    book_path = sys.argv[1]
     text = get_book_text(book_path)
     #print(text)
     
@@ -23,5 +28,4 @@ def main():
     for value in sort:
         print(f"{value["char"]}: {value["num"]}")
 
-    
 main()
